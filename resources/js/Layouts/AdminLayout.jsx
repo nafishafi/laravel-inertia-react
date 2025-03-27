@@ -3,6 +3,7 @@ import React from 'react'
 
 const AdminLayout = ({children}) => {
     const { component } = usePage();
+    const { auth } = usePage().props;
     
   return (
     <>
@@ -16,6 +17,7 @@ const AdminLayout = ({children}) => {
                         <a href="/todo" className={`${component == 'Todo' ? "font-semibold text-indigo-500" : "" }`}>Todo</a>
                     </div>
                 </nav>
+                    <div>{auth.user.name}</div>
             </div>
         </div>
     </header>

@@ -2,7 +2,7 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import GuestLayout from '@/Layouts/GuestLayout';
+import GeneralLayout from '@/layouts/GeneralLayout';
 import { Head, Link, useForm } from '@inertiajs/react';
 
 export default function Register() {
@@ -22,10 +22,12 @@ export default function Register() {
     };
 
     return (
-        <GuestLayout>
+        <GeneralLayout>
             <Head title="Register" />
 
-            <form onSubmit={submit}>
+            <h1 className='text-3xl text-center font-bold mb-8'>Register</h1>
+
+            <form onSubmit={submit} className='w-[400px]'>
                 <div>
                     <InputLabel htmlFor="name" value="Name" />
 
@@ -115,6 +117,6 @@ export default function Register() {
                     </PrimaryButton>
                 </div>
             </form>
-        </GuestLayout>
+        </GeneralLayout>
     );
 }
