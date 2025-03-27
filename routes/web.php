@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UserController;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
+use App\Http\Controllers\TodoController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -23,12 +24,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/todo', [TodoController::class, 'index'])->name('todo.index');
+    Route::post('/todo', [TodoController::class, 'store'])->name('todo.store');
 });
 
 Route::get('/users', [UserController::class, 'index']) -> name ('users.index');
 
-Route::get('/todo', function () {
-    return Inertia::render('Todo');
-})->middleware(['auth', 'verified'])->name('todo');
+// Route::get('/todo', function () {
+//     return Inertia::render('Todo');
+// })->middleware(['auth', 'verified'])->name('todo');
 
 require __DIR__.'/auth.php';
