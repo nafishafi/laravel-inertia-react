@@ -21,6 +21,12 @@ class TodoController extends Controller
         ]);
 
     }
+    
+    public function destroy(Todo $todo){
+        $todo->delete();
+        return back()->with('message', 'Data berhasil dihapus');
+
+    }
 
     public function update(Request $request, Todo $todo){
         $data = $request->validate([
