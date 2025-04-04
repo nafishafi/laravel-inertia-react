@@ -1,5 +1,5 @@
 import AdminLayout from "@/layouts/AdminLayout";
-import { router, useForm, usePage } from "@inertiajs/react";
+import { Link, router, useForm, usePage } from "@inertiajs/react";
 import React from "react";
 import { HiMiniPencilSquare } from "react-icons/hi2";
 import { FaTrash } from "react-icons/fa";
@@ -48,7 +48,10 @@ const Todo = ({ todos }) => {
                             <div key={i} className="flex justify-between items-center py-3 px-6 bg-red-100 rounded-md">
                                 <h3>{todo.name}</h3>
                                 <div className="flex items-center justify-center gap-2">
-                                    <HiMiniPencilSquare size={20} /> | {" "} <FaTrash size={17}/>
+                                   <Link href={`todo/edit/${todo.id}`}>
+                                    <HiMiniPencilSquare size={20} /> 
+                                   </Link>
+                                   | {" "} <FaTrash size={17}/>
                                 </div>
                             </div>
                         )
