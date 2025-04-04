@@ -48,6 +48,7 @@ const Todo = ({ todos }) => {
                             <div key={i} className="flex justify-between items-center py-3 px-6 bg-red-100 rounded-md">
                                 <h3>{todo.name}</h3>
                                 <div className="flex items-center justify-center gap-2">
+                                    <FaCheckCircle size={20} />
                                    <Link href={`todo/edit/${todo.id}`}>
                                     <HiMiniPencilSquare size={20} /> 
                                    </Link>
